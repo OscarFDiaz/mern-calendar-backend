@@ -12,8 +12,8 @@ dist
 dist-ssr
 *.local
 
-# Secrets
-
+# Secret file
+.env
 .secret
 
 # Editor directories and files
