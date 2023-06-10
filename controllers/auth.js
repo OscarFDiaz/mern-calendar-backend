@@ -36,15 +36,41 @@ const crearUsuario = async (req, res = response) => {
   }
 };
 
-const loginUsuario = (req, res = response) => {
+const loginUsuario = async (req, res = response) => {
   const { email, password } = req.body;
 
-  res.status(200).json({
-    ok: true,
-    msg: 'login',
-    email,
-    password,
-  });
+  try {
+    let usuario = await Usuario.findOne({ email });
+
+    if (!usuario) {
+      res.status(400).json({
+        ok: false,
+        msg: 'El email o la contraseña son incorrectos',
+      });
+    }
+
+    // Confirmar dos passwords
+    const validPassword = bcrypt.compareSync(password, usuario.password);
+
+    if (!validPassword) {
+      return res.status(400).json({
+        ok: false,
+        msg: 'Contraseña incorrecta',
+      });
+    }
+
+    // Generar TWK
+    res.status(201).json({
+      ok: true,
+      uid: usuario.id,
+      name: usuario.name,
+    });
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      msg: 'Por favor hable con el administrador',
+    });
+  }
 };
 
 const revalidarToken = (req, res = response) => {
