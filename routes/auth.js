@@ -20,7 +20,15 @@ router.post(
   crearUsuario,
 );
 
-router.post('/', loginUsuario);
+router.post(
+  '/',
+  [
+    //middlewares
+    check('email', 'El email es obligatorio').isEmail(),
+    check('password', 'El password debe de ser de 6 caracteres').isLength({ min: 6 }),
+  ],
+  loginUsuario,
+);
 
 router.get('/renew', revalidarToken);
 
