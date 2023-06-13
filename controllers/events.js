@@ -1,8 +1,5 @@
 const { response, request } = require('express');
 const Evento = require('../models/Evento');
-// const bcrypt = require('bcryptjs');
-// const Usuario = require('../models/Usuario');
-// const { generarJWT } = require('../helpers/jwt');
 
 const getEventos = async (req, res = response) => {
   const eventos = await Evento.find().populate('user', 'name');
