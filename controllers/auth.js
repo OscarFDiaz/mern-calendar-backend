@@ -25,7 +25,7 @@ const crearUsuario = async (req, res = response) => {
     await usuario.save();
 
     // Generar JWT
-    const token = await generarJWT(usuario.id, usuario.nombre);
+    const token = await generarJWT(usuario.id, usuario.name);
 
     res.status(201).json({
       ok: true,
@@ -65,7 +65,7 @@ const loginUsuario = async (req, res = response) => {
     }
 
     // Generar JWT
-    const token = await generarJWT(usuario.id, usuario.nombre);
+    const token = await generarJWT(usuario.id, usuario.name);
 
     res.status(201).json({
       ok: true,
