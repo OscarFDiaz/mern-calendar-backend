@@ -12,7 +12,7 @@
 
 🔗 Link para demo en Github pages
 
-https://github.com/OscarFDiaz/
+https://oscarfdiaz.github.io/mern-calendar/
 
 ---
 
