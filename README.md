@@ -4,13 +4,15 @@
 
 📝 Esta aplicación fue creada siguiendo el curso de Fernando Herrera: [React: De cero a experto (Hooks y MERN)](https://www.udemy.com/course/react-cero-experto/)
 
+💻 El [frontend](https://github.com/OscarFDiaz/mern-calendar) esta alojado en GitHub Pages.
+
 ---
 
 ## Demo
 
 🔗 Link para demo en Github pages
 
-PENDIENTE
+https://github.com/OscarFDiaz/
 
 ---
 
